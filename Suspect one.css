@@ -1,0 +1,523 @@
+/* =========================
+   BASIC
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   CYBER BACKGROUND
+========================= */
+
+.cyber-background {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Purple lines */
+.cyber-background::before {
+    content: "";
+    position: absolute;
+
+    width: 200%;
+    height: 200%;
+
+    top: -50%;
+    left: -50%;
+
+    background:
+        repeating-linear-gradient(
+            115deg,
+            transparent 0px,
+            transparent 100px,
+
+            rgba(150, 0, 255, 0.35) 102px,
+            rgba(150, 0, 255, 0.08) 105px,
+
+            transparent 108px
+        );
+
+    animation: purpleLines 10s linear infinite;
+
+    filter: blur(1px);
+}
+
+
+/* Blue lines */
+.cyber-background::after {
+    content: "";
+    position: absolute;
+
+    width: 200%;
+    height: 200%;
+
+    top: -50%;
+    left: -50%;
+
+    background:
+        repeating-linear-gradient(
+            65deg,
+            transparent 0px,
+            transparent 140px,
+
+            rgba(0, 170, 255, 0.3) 142px,
+            rgba(0, 170, 255, 0.08) 145px,
+
+            transparent 148px
+        );
+
+    animation: blueLines 13s linear infinite;
+}
+
+
+/* =========================
+   LINE ANIMATION
+========================= */
+
+@keyframes purpleLines {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(100px, 50px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+
+}
+
+
+@keyframes blueLines {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-100px, -40px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+
+}
+
+
+/* =========================
+   SCANLINE
+========================= */
+
+.scanline {
+    position: absolute;
+
+    width: 100%;
+    height: 2px;
+
+    background: rgba(150, 220, 255, 0.2);
+
+    box-shadow:
+        0 0 10px rgba(100, 180, 255, 0.5);
+
+    animation: scan 5s linear infinite;
+}
+
+@keyframes scan {
+
+    0% {
+        top: -5%;
+    }
+
+    100% {
+        top: 105%;
+    }
+
+}
+
+
+/* =========================
+   FIRST SCREEN
+========================= */
+
+.hero {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    animation: slideOut 0.3s ease-in-out 1.5s forwards;
+}
+
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(50px, 9vw, 120px);
+
+    font-weight: 800;
+    letter-spacing: 12px;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 15px rgba(150, 0, 255, 0.8),
+        0 0 35px rgba(0, 150, 255, 0.5);
+
+    animation: titleAppear 1.5s ease-out forwards;
+}
+
+
+/* =========================
+   TITLE ANIMATION
+========================= */
+
+@keyframes titleAppear {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   FIRST SCREEN SLIDES UP
+========================= */
+
+@keyframes slideOut {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100vh);
+    }
+
+}
+
+
+/* =========================
+   USERNAME SCREEN
+========================= */
+
+.username-section {
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: absolute;
+
+    top: 100vh;
+    left: 0;
+
+    width: 100%;
+
+    animation: usernameScreen 1.5s ease-in-out 3s forwards;
+}
+
+
+/* =========================
+   USERNAME BOX
+========================= */
+
+.username-box {
+
+    width: min(600px, 85%);
+
+    padding: 50px;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    border: 1px solid rgba(160, 80, 255, 0.6);
+
+    box-shadow:
+        0 0 20px rgba(130, 0, 255, 0.3),
+        inset 0 0 30px rgba(100, 0, 255, 0.08);
+
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    animation: usernameBoxAppear 1s ease-out 4s forwards;
+}
+
+
+/* =========================
+   USERNAME TEXT
+========================= */
+
+.username-box p {
+
+    margin: 0 0 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #9c6cff;
+}
+
+
+.username-box h2 {
+
+    margin: 0 0 30px;
+
+    font-size: 32px;
+
+    font-weight: 500;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.username-box input {
+
+    width: 100%;
+
+    padding: 16px 20px;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    border: 1px solid rgba(130, 180, 255, 0.6);
+
+    outline: none;
+
+    color: white;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 15px rgba(80, 130, 255, 0.15);
+}
+
+
+.username-box input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+.username-box input:focus {
+
+    border-color: #9b5cff;
+
+    box-shadow:
+        0 0 10px rgba(150, 70, 255, 0.5),
+        0 0 30px rgba(0, 140, 255, 0.2);
+}
+
+
+/* =========================
+   USERNAME SCREEN MOVES UP
+========================= */
+
+@keyframes usernameScreen {
+
+    0% {
+        top: 100vh;
+    }
+
+    100% {
+        top: 0;
+    }
+
+}
+
+
+/* =========================
+   USERNAME BOX APPEARS
+========================= */
+
+@keyframes usernameBoxAppear {
+
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.loading-screen {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.95);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.3s ease;
+
+    z-index: 10;
+}
+
+
+.loading-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* LOADING CIRCLE */
+
+.loader {
+    width: 45px;
+    height: 45px;
+
+    border: 2px solid rgba(255, 255, 255, 0.15);
+
+    border-top-color: #9b5cff;
+    border-right-color: #4cbfff;
+
+    border-radius: 50%;
+
+    animation: loadingSpin 0.6s linear infinite;
+
+    margin-bottom: 20px;
+}
+
+
+.loading-screen p {
+
+    margin: 0;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #9c6cff;
+}
+
+
+@keyframes loadingSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   WELCOME SCREEN
+========================= */
+
+.welcome-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0.95);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+    z-index: 11;
+}
+
+
+.welcome-screen.active {
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+.welcome-screen p {
+
+    margin-bottom: 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #9c6cff;
+}
+
+
+.welcome-screen h2 {
+
+    margin: 0;
+
+    font-size: clamp(35px, 6vw, 70px);
+
+    font-weight: 500;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(150, 0, 255, 0.6);
+}

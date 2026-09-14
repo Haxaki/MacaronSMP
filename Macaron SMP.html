@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macaron SMP</title>
+
+    <link rel="stylesheet" href="Suspect one.css">
+</head>
+
+<body>
+
+    <!-- CYBERPUNK BACKGROUND -->
+    <div class="cyber-background">
+        <div class="scanline"></div>
+    </div>
+
+
+    <!-- FIRST SCREEN -->
+    <section class="hero">
+
+        <h1>MACARON SMP</h1>
+
+        <div class="scroll-indicator">
+        </div>
+
+    </section>
+
+
+    <!-- USERNAME SCREEN -->
+<section class="username-section">
+
+    <div class="username-box" id="usernameBox">
+
+        <p>IDENTIFICATION REQUIRED</p>
+
+        <h2>Enter your username</h2>
+
+        <input
+            type="text"
+            id="usernameInput"
+            placeholder="Username..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <!-- LOADING SCREEN -->
+    <div class="loading-screen" id="loadingScreen">
+
+        <div class="loader"></div>
+
+        <p>CONNECTING...</p>
+
+    </div>
+
+
+    <!-- WELCOME SCREEN -->
+    <div class="welcome-screen" id="welcomeScreen">
+
+        <p>IDENTIFICATION VERIFIED</p>
+
+        <h2>Welcome, <span id="welcomeUsername"></span></h2>
+
+    </div>
+
+</section>
+
+<script src="scripted.js"></script>
+
+
+</body>
+</html>
