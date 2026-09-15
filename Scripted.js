@@ -38,16 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Sau 1.2 giây
 setTimeout(() => {
 
-    console.log("WELCOME!");
-    console.log(welcomeUsername);
-
     loadingScreen.classList.remove("active");
 
     welcomeUsername.textContent = username;
 
     welcomeScreen.classList.add("active");
 
-}, 1200);
-    });
+    // Sau 2 giây chuyển tới trang Haxaki
+    setTimeout(() => {
+        window.location.href = "Haxaki_Hamane/Haxpage.html";
+    }, 2000);
 
-});
+}, 1200);
