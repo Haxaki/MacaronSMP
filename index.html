@@ -76,17 +76,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const welcomeScreen = document.getElementById("welcomeScreen");
     const welcomeUsername = document.getElementById("welcomeUsername");
 
-    /* ========================================
-       PLAYER LIST
-    ======================================== */
-
-const players = {
-    "haxaki": "./Haxpage.html",
-    "axorei": "./Axorei.html"
-};
-    ==============
-       ENTER USERNAME
-    ======================================== */
+    const players = {
+        "haxaki": "./Haxpage.html",
+        "axorei": "./Axorei.html"
+    };
 
     input.addEventListener("keydown", function (event) {
 
@@ -100,11 +93,6 @@ const players = {
 
         loadingScreen.classList.add("active");
 
-
-        /* ========================================
-           LOADING
-        ======================================== */
-
         setTimeout(function () {
 
             loadingScreen.classList.remove("active");
@@ -113,24 +101,14 @@ const players = {
 
             welcomeScreen.classList.add("active");
 
-
-            /* ========================================
-               FIND PLAYER
-            ======================================== */
-
             setTimeout(function () {
 
                 const player = players[username.toLowerCase()];
 
                 if (player) {
-
                     window.location.href = player;
-
                 } else {
-
-                    // Nếu không tìm thấy player
                     window.location.href = "./players.html";
-
                 }
 
             }, 2000);
