@@ -6,46 +6,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const welcomeScreen = document.getElementById("welcomeScreen");
     const welcomeUsername = document.getElementById("welcomeUsername");
 
-    console.log("Macaron SMP script loaded");
-
-    if (!input) {
-        console.error("usernameInput not found");
+    // Check HTML elements
+    if (!input || !usernameBox || !loadingScreen || !welcomeScreen || !welcomeUsername) {
+        console.error("ERROR: Cannot find required HTML elements.");
         return;
     }
 
-    input.addEventListener("keydown", function (event) {
-
-        if (event.key !== "Enter") {
-            return;
-        }
+    function enterWebsite() {
 
         const username = input.value.trim();
 
+        // Don't do anything if empty
         if (username === "") {
+            input.focus();
             return;
         }
 
         console.log("Username:", username);
 
         // Hide username box
-        usernameBox.style.opacity = "0";
-        usernameBox.style.pointerEvents = "none";
+        usernameBox.style.display = "none";
 
-        // Show loading
+        // Show loading screen
         loadingScreen.classList.add("active");
 
-        // Loading time
+        console.log("Loading screen");
+
+        // Loading for 1.2 seconds
         setTimeout(function () {
 
             loadingScreen.classList.remove("active");
 
-            // Show Welcome
+            // Put username into Welcome
             welcomeUsername.textContent = username;
+
+            // Show Welcome
             welcomeScreen.classList.add("active");
 
-            console.log("Welcome screen shown");
+            console.log("Welcome screen");
 
-            // Go to Haxaki page
+            // Go to Haxaki page after 2 seconds
             setTimeout(function () {
 
                 console.log("Going to Haxpage.html");
@@ -55,6 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 2000);
 
         }, 1200);
+    }
+
+    // Press Enter
+    input.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+            enterWebsite();
+        }
 
     });
 
