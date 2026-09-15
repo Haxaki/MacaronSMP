@@ -36,18 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingScreen.classList.add("active");
 
         // Sau 1.2 giây
-        setTimeout(() => {
+setTimeout(() => {
 
-            loadingScreen.classList.remove("active");
+    console.log("WELCOME!");
+    console.log(welcomeUsername);
 
-            // Đưa username vào Welcome
-            welcomeUsername.textContent = username;
+    loadingScreen.classList.remove("active");
 
-            // Hiện Welcome
-            welcomeScreen.classList.add("active");
+    welcomeUsername.textContent = username;
 
-        }, 1200);
+    welcomeScreen.classList.add("active");
 
+}, 1200);
     });
 
 });
