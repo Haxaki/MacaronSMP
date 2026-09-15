@@ -76,25 +76,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const welcomeScreen = document.getElementById("welcomeScreen");
     const welcomeUsername = document.getElementById("welcomeUsername");
 
-    console.log("Macaron SMP loaded");
+    /* ========================================
+       PLAYER LIST
+    ======================================== */
+
+    const players = {
+
+        "haxaki": "./Haxaki_Hamane/Haxpage.html",
+
+        "axorei": "./Axorei/Axorei.html",
+
+        // Thêm player khác ở đây sau
+        // "atelierindustry": "./AtelierIndustry/AtelierIndustry.html",
+        // "memory": "./Memory/Memory.html",
+
+    };
+
+
+    /* ========================================
+       ENTER USERNAME
+    ======================================== */
 
     input.addEventListener("keydown", function (event) {
 
-        if (event.key !== "Enter") {
-            return;
-        }
+        if (event.key !== "Enter") return;
 
         const username = input.value.trim();
 
-        if (username === "") {
-            return;
-        }
-
-        console.log("ENTER:", username);
+        if (username === "") return;
 
         usernameBox.style.display = "none";
 
         loadingScreen.classList.add("active");
+
+
+        /* ========================================
+           LOADING
+        ======================================== */
 
         setTimeout(function () {
 
@@ -104,10 +122,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
             welcomeScreen.classList.add("active");
 
-            console.log("WELCOME!");
+
+            /* ========================================
+               FIND PLAYER
+            ======================================== */
 
             setTimeout(function () {
-                window.location.href = "./Haxpage.html";
+
+                const player = players[username.toLowerCase()];
+
+                if (player) {
+
+                    window.location.href = player;
+
+                } else {
+
+                    // Nếu không tìm thấy player
+                    window.location.href = "./players.html";
+
+                }
+
             }, 2000);
 
         }, 1200);
@@ -116,7 +150,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
-
-
 </body>
 </html>
