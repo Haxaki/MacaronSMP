@@ -46,7 +46,7 @@ setTimeout(() => {
 
     // Sau 2 giây chuyển tới trang Haxaki
     setTimeout(() => {
-        window.location.href = "Haxaki_Hamane/Haxpage.html";
+        window.location.href = "./Haxpage.html";
     }, 2000);
 
 }, 1200);
