@@ -78,17 +78,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const players = {
         "haxaki": "./Haxpage.html",
+
         "axorei": "./Axorei.html",
+        "7vxltls": "./Axorei.html",
+        "7vx": "./Axorei.html",
+        "axo": "./Axorei.html"
     };
 
-input.addEventListener("keydown", function (event) {
+    input.addEventListener("keydown", function (event) {
 
-    if (event.key !== "Enter") return;
+        if (event.key !== "Enter") return;
 
-    alert("ENTER WORKS!");
+        const username = input.value.trim();
+
+        if (username === "") return;
+
+        console.log("Username:", username);
+        console.log("Destination:", players[username.toLowerCase()]);
 
         usernameBox.style.display = "none";
-
         loadingScreen.classList.add("active");
 
         setTimeout(function () {
@@ -96,15 +104,19 @@ input.addEventListener("keydown", function (event) {
             loadingScreen.classList.remove("active");
 
             welcomeUsername.textContent = username;
-
             welcomeScreen.classList.add("active");
+
+            console.log("WELCOME SHOWN");
 
             setTimeout(function () {
 
                 const player = players[username.toLowerCase()];
 
                 if (player) {
+                    console.log("Redirecting to:", player);
                     window.location.href = player;
+                } else {
+                    console.log("Player not found!");
                 }
 
             }, 2000);
