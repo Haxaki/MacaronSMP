@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
     const input = document.getElementById("usernameInput");
     const usernameBox = document.getElementById("usernameBox");
@@ -6,47 +6,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const welcomeScreen = document.getElementById("welcomeScreen");
     const welcomeUsername = document.getElementById("welcomeUsername");
 
-    // Kiểm tra element
-    if (!input || !usernameBox || !loadingScreen || !welcomeScreen || !welcomeUsername) {
-        console.error("Macaron SMP: Missing HTML element!");
-        console.log({
-            input,
-            usernameBox,
-            loadingScreen,
-            welcomeScreen,
-            welcomeUsername
-        });
+    console.log("Macaron SMP script loaded");
+
+    if (!input) {
+        console.error("usernameInput not found");
         return;
     }
 
-    input.addEventListener("keydown", (event) => {
+    input.addEventListener("keydown", function (event) {
 
-        if (event.key !== "Enter") return;
+        if (event.key !== "Enter") {
+            return;
+        }
 
         const username = input.value.trim();
 
-        // Không làm gì nếu chưa nhập
-        if (username === "") return;
+        if (username === "") {
+            return;
+        }
 
-        // Ẩn ô nhập username
+        console.log("Username:", username);
+
+        // Hide username box
         usernameBox.style.opacity = "0";
         usernameBox.style.pointerEvents = "none";
 
-        // Hiện loading
+        // Show loading
         loadingScreen.classList.add("active");
 
-        // Sau 1.2 giây
-setTimeout(() => {
+        // Loading time
+        setTimeout(function () {
 
-    loadingScreen.classList.remove("active");
+            loadingScreen.classList.remove("active");
 
-    welcomeUsername.textContent = username;
+            // Show Welcome
+            welcomeUsername.textContent = username;
+            welcomeScreen.classList.add("active");
 
-    welcomeScreen.classList.add("active");
+            console.log("Welcome screen shown");
 
-    // Sau 2 giây chuyển tới trang Haxaki
-    setTimeout(() => {
-        window.location.href = "./Haxpage.html";
-    }, 2000);
+            // Go to Haxaki page
+            setTimeout(function () {
 
-}, 1200);
+                console.log("Going to Haxpage.html");
+
+                window.location.href = "./Haxpage.html";
+
+            }, 2000);
+
+        }, 1200);
+
+    });
+
+});
