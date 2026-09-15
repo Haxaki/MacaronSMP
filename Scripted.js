@@ -1,32 +1,42 @@
-const input = document.getElementById("usernameInput");
-const usernameBox = document.getElementById("usernameBox");
-const loadingScreen = document.getElementById("loadingScreen");
-const welcomeScreen = document.getElementById("welcomeScreen");
-const welcomeUsername = document.getElementById("welcomeUsername");
+document.addEventListener("DOMContentLoaded", () => {
 
+    const input = document.getElementById("usernameInput");
+    const usernameBox = document.getElementById("usernameBox");
+    const loadingScreen = document.getElementById("loadingScreen");
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const welcomeUsername = document.getElementById("welcomeUsername");
 
-input.addEventListener("keydown", function(event) {
+    // Kiểm tra element
+    if (!input || !usernameBox || !loadingScreen || !welcomeScreen || !welcomeUsername) {
+        console.error("Macaron SMP: Missing HTML element!");
+        console.log({
+            input,
+            usernameBox,
+            loadingScreen,
+            welcomeScreen,
+            welcomeUsername
+        });
+        return;
+    }
 
-    if (event.key === "Enter") {
+    input.addEventListener("keydown", (event) => {
+
+        if (event.key !== "Enter") return;
 
         const username = input.value.trim();
 
-        // Không làm gì nếu chưa nhập tên
-        if (username === "") {
-            return;
-        }
+        // Không làm gì nếu chưa nhập
+        if (username === "") return;
 
-
-        // Ẩn ô nhập
+        // Ẩn ô nhập username
         usernameBox.style.opacity = "0";
-
+        usernameBox.style.pointerEvents = "none";
 
         // Hiện loading
         loadingScreen.classList.add("active");
 
-
-        // Loading trong 1.2 giây
-        setTimeout(function() {
+        // Sau 1.2 giây
+        setTimeout(() => {
 
             loadingScreen.classList.remove("active");
 
@@ -38,6 +48,6 @@ input.addEventListener("keydown", function(event) {
 
         }, 1200);
 
-    }
+    });
 
 });
