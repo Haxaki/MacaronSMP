@@ -11,7 +11,7 @@ const skinViewer = new skinview3d.SkinViewer({
     canvas: canvas,
     width: 400,
     height: 500,
-    skin: "./Axorei.PNG"
+    skin: "./Axorei.png"
 });
 
 
