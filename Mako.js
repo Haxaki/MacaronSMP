@@ -15,7 +15,7 @@ const skinViewer = new skinview3d.SkinViewer({
     canvas: canvas,
     width: 400,
     height: 500,
-    skin: "./Mako.PNG"
+    skin: "./Mako.png"
 });
 
 skinViewer.autoRotate = true;
