@@ -15,7 +15,7 @@ const skinViewer = new skinview3d.SkinViewer({
     canvas: canvas,
     width: 400,
     height: 500,
-    skin: "./French.png"
+    skin: "./French.PNG"
 });
 
 skinViewer.autoRotate = true;
