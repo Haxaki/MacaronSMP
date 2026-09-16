@@ -539,82 +539,52 @@ body {
 @media (max-width: 900px) {
 
     .profile {
-
         grid-template-columns: 1fr;
-
     }
-
 
     .skin-section {
-
         min-height: 70vh;
-
         border-right: none;
-
         border-bottom:
             1px solid rgba(155, 92, 255, 0.25);
-
     }
-
 
     .skin-container {
-
         width: 90%;
-
         max-width: 450px;
-
         height: 500px;
-
     }
-
 
     #skin_container {
-
         width: 100%;
-
         height: 450px;
-
     }
-
 
     .info-section {
-
         min-height: auto;
-
         padding: 60px 30px;
-
     }
-
 
     .info-section h1 {
-
-        font-size: 60px;
-
+        font-size: 42px;
+        white-space: nowrap;
     }
-
 }
 
 
 @media (max-width: 500px) {
 
     .skin-container {
-
         height: 430px;
-
     }
-
 
     #skin_container {
-
         height: 400px;
-
     }
 
-
     .info-section h1 {
-
-        font-size: 45px;
-
+        font-size: 36px;
+        white-space: nowrap;
     }
 
 }
