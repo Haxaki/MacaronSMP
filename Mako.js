@@ -1,5 +1,5 @@
 /* ========================================
-   MACARON SMP — FRENCH PROFILE
+   MACARON SMP — MAKO PROFILE
 ======================================== */
 
 
