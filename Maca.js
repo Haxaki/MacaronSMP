@@ -1,5 +1,5 @@
 /* ========================================
-   MACARON SMP — AtelierIndustry PROFILE
+   MACARON SMP — Macaron PROFILE
 ======================================== */
 
 const canvas = document.getElementById("skin_container");
@@ -11,7 +11,7 @@ const skinViewer = new skinview3d.SkinViewer({
     canvas: canvas,
     width: 400,
     height: 500,
-    skin: "./Jena.png"
+    skin: "./Rae.png"
 });
 
 /* ========================================
