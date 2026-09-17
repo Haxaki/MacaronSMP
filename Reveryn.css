@@ -1,0 +1,662 @@
+/* ========================================
+   BASIC RESET
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #000;
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   CYBERPUNK BACKGROUND
+======================================== */
+
+.cyber-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #000;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+/* Purple diagonal lines */
+
+.cyber-background::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -100%;
+
+    background:
+        repeating-linear-gradient(
+            120deg,
+            transparent 0px,
+            transparent 90px,
+            rgba(130, 0, 255, 0.28) 92px,
+            rgba(130, 0, 255, 0.28) 95px,
+            transparent 97px,
+            transparent 180px
+        );
+
+    animation: purpleLines 12s linear infinite;
+
+}
+
+
+/* Blue diagonal lines */
+
+.cyber-background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -100%;
+
+    background:
+        repeating-linear-gradient(
+            60deg,
+            transparent 0px,
+            transparent 120px,
+            rgba(0, 180, 255, 0.25) 122px,
+            rgba(0, 180, 255, 0.25) 125px,
+            transparent 127px,
+            transparent 240px
+        );
+
+    animation: blueLines 16s linear infinite;
+
+}
+
+
+/* Moving purple */
+
+@keyframes purpleLines {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(180px, 180px);
+    }
+
+}
+
+
+/* Moving blue */
+
+@keyframes blueLines {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-180px, 180px);
+    }
+
+}
+
+
+/* ========================================
+   SCANLINE
+======================================== */
+
+.scanline {
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: rgba(100, 200, 255, 0.15);
+
+    box-shadow:
+        0 0 10px rgba(0, 180, 255, 0.4);
+
+    animation: scan 5s linear infinite;
+
+}
+
+
+@keyframes scan {
+
+    from {
+        top: -5%;
+    }
+
+    to {
+        top: 105%;
+    }
+
+}
+
+
+/* ========================================
+   PROFILE LAYOUT
+======================================== */
+
+.profile {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 45% 55%;
+
+}
+
+
+/* ========================================
+   LEFT — SKIN SECTION
+======================================== */
+
+.skin-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    border-right:
+        1px solid rgba(155, 92, 255, 0.25);
+
+}
+
+
+/* ========================================
+   SMALL LABEL
+======================================== */
+
+.section-label {
+
+    margin: 0 0 20px;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #9c6cff;
+
+    text-transform: uppercase;
+
+}
+
+
+/* ========================================
+   SKIN CONTAINER
+======================================== */
+
+.skin-container {
+
+    width: 450px;
+    height: 550px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    background:
+        rgba(5, 0, 15, 0.55);
+
+    border:
+        1px solid rgba(155, 92, 255, 0.35);
+
+    box-shadow:
+
+        0 0 30px
+        rgba(120, 50, 255, 0.15),
+
+        inset 0 0 30px
+        rgba(120, 50, 255, 0.05);
+
+}
+
+
+/* Small corners */
+
+.skin-container::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: -1px;
+
+    width: 35px;
+    height: 35px;
+
+    border-top:
+        2px solid #9b5cff;
+
+    border-left:
+        2px solid #9b5cff;
+
+}
+
+
+.skin-container::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -1px;
+    right: -1px;
+
+    width: 35px;
+    height: 35px;
+
+    border-bottom:
+        2px solid #4cbfff;
+
+    border-right:
+        2px solid #4cbfff;
+
+}
+
+
+/* Canvas */
+
+#skin_container {
+
+    width: 400px;
+    height: 500px;
+
+    display: block;
+
+}
+
+
+/* ========================================
+   SKIN HINT
+======================================== */
+
+.skin-hint {
+
+    margin: 18px 0 0;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255, 255, 255, 0.35);
+
+}
+
+
+/* ========================================
+   RIGHT — INFO SECTION
+======================================== */
+
+.info-section {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 110px 70px 60px;
+}
+
+/* Player profile label */
+
+.info-section .section-label {
+    margin-bottom: 12px;
+}
+
+
+/* Player name */
+
+.info-section h1 {
+    margin: 0 0 30px;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(150, 0, 255, 0.5);
+}
+
+/* ========================================
+   PLAYER INFORMATION
+======================================== */
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    max-width: 600px;
+}
+
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 12px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.info-item span,
+.about > span {
+    margin-bottom: 5px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #8b8b9c;
+}
+
+
+.info-item strong {
+    font-size: 17px;
+
+    font-weight: 400;
+
+    color: white;
+}
+
+.info-item ul,
+.info-item ol {
+    list-style: none;
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+.info-item li {
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+/* ========================================
+   ABOUT
+======================================== */
+
+.about {
+    margin-top: 25px;
+
+    max-width: 600px;
+}
+
+
+.about p {
+    font-size: 50px;
+    line-height: 1.6;
+    max-width: 750px;
+}
+}
+}
+/* ========================================
+   PLAYER INFORMATION
+======================================== */
+
+.info-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    max-width: 600px;
+
+}
+
+
+.info-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.12);
+
+}
+
+
+.info-item span,
+.about > span {
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #8b8b9c;
+
+}
+
+
+.info-item strong {
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    color: white;
+
+}
+
+
+/* Active status */
+
+.status-active {
+
+    color: #65e6a5 !important;
+
+    text-shadow:
+        0 0 10px rgba(80, 255, 160, 0.4);
+
+}
+
+/* ========================================
+   IMPORTANT INFORMATION
+======================================== */
+
+.important-warning {
+    margin-top: 30px;
+    margin-bottom: 25px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: white;
+}
+
+.important-warning span {
+    color: #ff3333;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    text-decoration: underline;
+}
+
+.important-warning div {
+    color: white;
+}
+/* ========================================
+   ABOUT
+======================================== */
+
+
+.about {
+
+    margin-top: 40px;
+
+    max-width: 600px;
+
+}
+
+
+.about p {
+
+    margin: 10px 0 0;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #c7c7d2;
+
+}
+
+.status-inactive {
+    color: #ff3333 !important;
+    text-shadow:
+        0 0 10px rgba(255, 0, 0, 0.5),
+        0 0 20px rgba(255, 0, 0, 0.25);
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .profile {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .skin-section {
+
+        min-height: 70vh;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(155, 92, 255, 0.25);
+
+    }
+
+
+    .skin-container {
+
+        width: 90%;
+
+        max-width: 450px;
+
+        height: 500px;
+
+    }
+
+
+    #skin_container {
+
+        width: 100%;
+
+        height: 450px;
+
+    }
+
+
+    .info-section {
+
+        min-height: auto;
+
+        padding: 60px 30px;
+
+    }
+
+
+    .info-section h1 {
+
+        font-size: 60px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .skin-container {
+
+        height: 430px;
+
+    }
+
+
+    #skin_container {
+
+        height: 400px;
+
+    }
+
+
+    .info-section h1 {
+
+        font-size: 45px;
+
+    }
+
+}
