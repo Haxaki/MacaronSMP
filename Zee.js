@@ -1,5 +1,5 @@
 /* ========================================
-   MACARON SMP — AtelierIndustry PROFILE
+   MACARON SMP — Zeelizee PROFILE
 ======================================== */
 
 const canvas = document.getElementById("skin_container");
