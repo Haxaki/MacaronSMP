@@ -1,5 +1,5 @@
 /* ========================================
-   MACARON SMP — ZeeliZee PROFILE
+   MACARON SMP — Zeenah PROFILE
 ======================================== */
 
 const canvas = document.getElementById("skin_container");
